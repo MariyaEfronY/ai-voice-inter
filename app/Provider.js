@@ -1,8 +1,9 @@
 
  "use client"
+import { UserDetailsContext } from "@/context/UserDetailsContext";
 import { supabase } from "@/services/supabaseClient";
 import { Divide } from "lucide-react";
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 
 
 function Provider({children}) {
@@ -43,7 +44,14 @@ function Provider({children}) {
 
 
   return (
+    <UserDetailsContext.Provider value={{user, setUser}}>            
     <div>{children}</div>
+    </UserDetailsContext.Provider>
   );
 }       
 export default Provider;
+
+export const useUser=() =>{
+    const context =useContext(UserDetailsContext);
+    return context;
+}
