@@ -27,3 +27,5 @@ export const SidebarOptions = [
         path:"/settings"
     },
 ]
+
+export default SidebarOptions   
