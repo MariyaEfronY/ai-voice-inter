@@ -1,10 +1,16 @@
 import React from 'react'
+import AppSidebar from './_components/AppSidebar'
+import { SidebarProvider } from '@/components/ui/sidebar' 
 
 const DashboardProvider = ({ children }) => {
   return (
-    <div>
+      <SidebarProvider>
+        <AppSidebar />
+        <div>
       {children}
-    </div>
+        </div>
+
+      </SidebarProvider>
   )
 }
 
