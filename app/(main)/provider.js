@@ -1,17 +1,25 @@
 import React from 'react'
-import AppSidebar from './_components/AppSidebar'
-import { SidebarProvider } from '@/components/ui/sidebar' 
+import { SidebarProvider } from '@/components/ui/sidebar'
+import { AppSidebar } from './_components/AppSidebar'
 
-const DashboardProvider = ({ children }) => {
+
+
+const DashboardProvider = ({ children}) => {
   return (
-      <SidebarProvider>
-        <AppSidebar />
-        <div>
-      {children}
-        </div>
+    <SidebarProvider>
+      <AppSidebar />
+      <div>{children}</div>
+    </SidebarProvider>
 
-      </SidebarProvider>
-  )
+)
 }
 
 export default DashboardProvider
+
+
+
+
+
+ 
+
+
