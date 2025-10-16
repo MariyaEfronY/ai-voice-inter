@@ -4,10 +4,13 @@ import {
   SidebarFooter,
   SidebarGroup,
   SidebarHeader,
+  SidebarMenu,
+  SidebarMenuButton,
 } from "@/components/ui/sidebar"
  import Image from 'next/image'
  import { Button } from "@/components/ui/button"
  import { Plus } from "lucide-react"  
+ import { SidebarMenuItem } from "@/components/ui/sidebar"
 
 
 
@@ -23,8 +26,23 @@ export function AppSidebar() {
       <Button className='w-full mt-5'><Plus/>Add new Interview</Button>
        </SidebarHeader> 
       <SidebarContent>
-        <SidebarGroup />
-        <SidebarGroup />
+        <SidebarGroup>
+          <SidebarContent>
+            <SidebarMenu>
+              {SidebarOptions.map((option, index) =>(
+                <SidebarMenuItem key={index}>
+                  <SidebarMenuButton asChild>
+                    <Link href={option.path}>
+                    <option.icon />
+                    <span>{option.name}</span>
+                    </Link>   
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              ))}
+            </SidebarMenu>
+          </SidebarContent>
+        </SidebarGroup>
+        
       </SidebarContent>
       <SidebarFooter />
     </Sidebar>
