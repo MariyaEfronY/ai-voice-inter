@@ -1,11 +1,11 @@
-import React, { Children } from 'react'
+import React from 'react'
 import DashboardProvider from './provider'
 
-const DashboardLayout = (Children) => {
+const DashboardLayout = ({ children }) => {
   return (
-        <DashboardProvider> 
-    <div>{Children}</div>
-    </DashboardProvider> 
+    <DashboardProvider>
+      <div>{children}</div>
+    </DashboardProvider>
   )
 }
 

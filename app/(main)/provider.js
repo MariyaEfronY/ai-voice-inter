@@ -1,8 +1,8 @@
 import React from 'react'
 
-const DashboardProvider = (Children) => {
+const DashboardProvider = ({ children }) => {
   return (
-<div>{Children}</div>
+    <div>{children}</div>
   )
 }
 
