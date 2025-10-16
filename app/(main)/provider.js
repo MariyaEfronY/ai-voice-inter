@@ -1,14 +1,17 @@
 import React from 'react'
 import { SidebarProvider } from '@/components/ui/sidebar'
 import { AppSidebar } from './_components/AppSidebar'
-
+import { SidebarTrigger } from '@/components/ui/sidebar'
 
 
 const DashboardProvider = ({ children}) => {
   return (
     <SidebarProvider>
       <AppSidebar />
-      <div>{children}</div>
+      <div>
+        <SidebarTrigger />
+        {children}
+        </div>
     </SidebarProvider>
 
 )
