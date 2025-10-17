@@ -13,7 +13,16 @@ export default function WelcomeContainer() {
       <p className="text-gray-500">Email: {user?.email || "Not available"}</p>
       <h2>AI-Driven Interview</h2>
       </div>
-      {user && <Image src={user?.picture || "/default-avatar.png"} alt="User Avatar" width={50} height={50} />}
+             {user && (
+          <Image
+            src={user.picture}
+            alt="User Avatar"
+            width={50}
+            height={50}
+            className="rounded-full"
+          />
+        )}
+
     </div>
   )
 }

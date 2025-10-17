@@ -26,7 +26,8 @@ function Provider({ children }) {
     if (!users || users.length === 0) {
       setUser({
         name: authUser.user_metadata?.name || "Guest",
-        email: authUser.email
+        email: authUser.email,
+        picture: authUser.user_metadata?.picture || "/default-avatar.png" // ✅ added comma
       })
     } else {
       setUser(users[0])
