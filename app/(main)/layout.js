@@ -1,14 +1,13 @@
-import React from 'react'
-import DashboardProvider from './provider'
+import React from "react"
+import Provider from "@/app/Provider" // ✅ adjust path if needed
+import DashboardProvider from "./provider" // your existing dashboard layout wrapper
 
-const DashboardLayout = ( {children} ) => {
+export default function DashboardLayout({ children }) {
   return (
-    <DashboardProvider>
-      <div className='p-10'>
+    <Provider> {/* ✅ wraps everything with context */}
+      <DashboardProvider>
         {children}
-      </div>
-    </DashboardProvider>
+      </DashboardProvider>
+    </Provider>
   )
 }
-
-export default DashboardLayout

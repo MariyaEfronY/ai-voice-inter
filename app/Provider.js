@@ -1,57 +1,49 @@
+"use client"
+import React, { createContext, useContext, useEffect, useState } from "react"
+import { supabase } from "@/services/supabaseClient"
 
- "use client"
-import { UserDetailsContext } from "@/context/UserDetailsContext";
-import { supabase } from "@/services/supabaseClient";
-import { Divide } from "lucide-react";
-import React, {useContext, useEffect, useState} from "react";
+export const UserDetailsContext = createContext()
 
+function Provider({ children }) {
+  const [user, setUser] = useState(null)
 
-function Provider({children}) {
+  useEffect(() => {
+    fetchUser()
+  }, [])
 
-    const [user, setUser] = useState();
+  const fetchUser = async () => {
+    const { data: { user: authUser }, error } = await supabase.auth.getUser()
+    if (error) return console.error(error)
+    if (!authUser) return console.log("No user logged in")
 
-    useEffect(() =>{
-        CreateNewUser
-    },[])
+    const { data: users, error: dbError } = await supabase
+      .from("Users")
+      .select("*")
+      .eq("email", authUser.email)
 
+    if (dbError) return console.error(dbError)
 
-
-    const CreateNewUser = () => {
-        supabase.auth.getUser().then(async({data: {user}}) => {
-            
-        let { data: Users, error } = await supabase
-       .from('Users')
-       .select('*')
-       .eq('email', user?.email);
-       console.log(Users)
-
-       if(Users?.length === 0){
-       const { data, error} = await supabase.from('Users')
-        .insert([
-          { name:user?.user_metadata?.name,
-            email:user?.email,
-            picture:user?.user_metadata?.picture
-          }
-        ])
-        console.log(data);
-        setUser(data);
-        return;
-       }
-       setUser(user[0]);
-          
-        })
+    if (!users || users.length === 0) {
+      setUser({
+        name: authUser.user_metadata?.name || "Guest",
+        email: authUser.email
+      })
+    } else {
+      setUser(users[0])
     }
-
+  }
 
   return (
-    <UserDetailsContext.Provider value={{user, setUser}}>            
-    <div>{children}</div>
+    <UserDetailsContext.Provider value={{ user, setUser }}>
+      {children}
     </UserDetailsContext.Provider>
-  );
-}       
-export default Provider;
+  )
+}
 
-export const useUser=() =>{
-    const context =useContext(UserDetailsContext);
-    return context;
+export default Provider
+
+export const useUser = () => {
+  const context = useContext(UserDetailsContext)
+  if (!context) throw new Error("useUser must be used inside Provider")
+  return context
 }
