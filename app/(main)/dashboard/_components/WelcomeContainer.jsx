@@ -6,13 +6,12 @@ export default function WelcomeContainer() {
   const { user } = useUser()
 
   return (
-     <div className="p-10">
-      <h1 className="text-2xl font-bold">
-        Welcome, {user?.name || "Guest"}
-      </h1>
-      <p className="text-gray-600">
-        Email: {user?.email || "Not available"}
-      </p>
+     <div>
+      <div className="bg-green-400 pt-3 rounded-2xl w-full">
+      <h1 className="text-lg font-bold">Welcome Back, {user?.name || "Guest"} </h1>
+      <p className="text-gray-500">Email: {user?.email || "Not available"}</p>
+      <h2>AI-Driven Interview</h2>
+      </div>
     </div>
   )
 }

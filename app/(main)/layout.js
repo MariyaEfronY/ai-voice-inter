@@ -1,13 +1,15 @@
 import React from "react"
-import Provider from "@/app/Provider" // ✅ adjust path if needed
 import DashboardProvider from "./provider" // your existing dashboard layout wrapper
 
 export default function DashboardLayout({ children }) {
   return (
-    <Provider> {/* ✅ wraps everything with context */}
+       <div className="bg-secondary">
       <DashboardProvider>
-        {children}
+        <div className="p-10"> 
+          {children}
+        </div>
+
       </DashboardProvider>
-    </Provider>
+    </div>
   )
 }
