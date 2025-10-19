@@ -13,7 +13,7 @@ const DashboardProvider = ({ children}) => {
       
     <SidebarProvider>
       <AppSidebar />
-      <div className=' w-full'>
+      <div className=' w-full p-10'>
         <SidebarTrigger />
         <WelcomeContainer />
         {children}
