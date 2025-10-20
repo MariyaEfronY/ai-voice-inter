@@ -1,5 +1,6 @@
 
 "use client"
+import { Progress } from '@/components/ui/progress'
 import { ArrowLeft } from 'lucide-react'
 import { useRouter } from 'next/navigation'   
 import React from 'react'
@@ -14,6 +15,7 @@ const CreateInterview = () => {
       className='cursor-pointer'/>
       <h2 className='font-bold text-2xl'>Create New Interview</h2>
      </div>
+     <Progress value={33} className='my-5'/>
     </div>
   )
 }
