@@ -11,7 +11,7 @@ const CreateInterview = () => {
      <div className='flex gap-5 items-center' >
       <ArrowLeft 
       onClick={()=>router.back()} 
-      className='curser-pointer'/>
+      className='cursor-pointer'/>
       <h2 className='font-bold text-2xl'>Create New Interview</h2>
      </div>
     </div>
