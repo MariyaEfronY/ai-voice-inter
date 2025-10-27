@@ -13,21 +13,24 @@ import {
 import React from 'react'
 import { ArrowRight } from 'lucide-react';
 
-const FormContainer = () => {
+function FormContainer({onHandleInputChange}) {
+  const [interviewtype, setInterviewtype] = useState([]);
   return (
     <div className='p-5 bg-white rounded-2xl'>
       <div>
         <h2 className='text-sm font-medium'>Job Position</h2>
-        <Input placeholder="e.g. Fullstack Developer " className='mt-2' />
+        <Input placeholder="e.g. Fullstack Developer " className='mt-2' 
+        onChange={(event)=>onHandleInputChange('jobPosition',event.target.value)} />
       </div>
       <div className='mt-5'>
         <h2 className='text-sm font-medium'>Job Description</h2>
         <Textarea placeholder="Enter details job description " 
-        className='h-[200px] mt-2' />
+        className='h-[200px] mt-2'
+        onChange={(event)=>onHandleInputChange('jobPosition',event.target.value)} />
       </div>
       <div className='mt-5'>
         <h2 className='text-sm font-medium'>Interview Duration</h2>
-        <Select>
+        <Select onValueChange={(value)=>onHandleInputChange('Duration',value)}>
   <SelectTrigger className="w-full mt-2">
     <SelectValue placeholder="Select Duration" />
   </SelectTrigger>
