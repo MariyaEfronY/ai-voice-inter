@@ -23,6 +23,15 @@ function FormContainer({ onHandleInputChange }) {
     }
   }, [interviewType]);
 
+  // ✅ Reusable function for toggling interview types
+  const AddInterviewType = (typeTitle) => {
+    setInterviewType((prev) =>
+      prev.includes(typeTitle)
+        ? prev.filter((t) => t !== typeTitle) // Remove if already selected
+        : [...prev, typeTitle] // Add if not selected
+    );
+  };
+
   return (
     <div className="p-5 bg-white rounded-2xl">
       {/* Job Position */}
@@ -78,13 +87,7 @@ function FormContainer({ onHandleInputChange }) {
                   ? 'bg-blue-200 border border-blue-600'
                   : 'bg-blue-50 hover:bg-blue-100'}
               `}
-              onClick={() =>
-                setInterviewType((prev) =>
-                  prev.includes(type.title)
-                    ? prev.filter((t) => t !== type.title)
-                    : [...prev, type.title]
-                )
-              }
+              onClick={() => AddInterviewType(type.title)}
             >
               <type.icon className="h-4 w-4" />
               <span>{type.title}</span>
