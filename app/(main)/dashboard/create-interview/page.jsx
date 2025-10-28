@@ -25,6 +25,14 @@ setFormData((prev) => ({
 
   }
 
+  const onGoToNext=()=>{  
+    if(formData?.Length<=3)
+    {
+      return ;
+    }
+    setstep(step+1);
+  }
+
 
   return (
     <div className='mt-10 px-10 md:px-24 lg:px-44 xl:px-56'>
@@ -36,7 +44,7 @@ setFormData((prev) => ({
      </div>
      <Progress value={step * 33.33} className='my-5'/>
      {step==1?<FormContainer onHandleInputChange={onHandleInputChange} 
-     GoToNext={()=>setstep(step+1)} />
+     GoToNext={()=> onGoToNext()} />
      :step==2?<QuestionList/>:null}
     </div>
   )
