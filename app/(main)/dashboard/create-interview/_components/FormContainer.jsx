@@ -55,9 +55,9 @@ function FormContainer({onHandleInputChange}) {
         <h2 className='text-sm font-medium'>Interview Type</h2>
       <div className='flex gap-3 flex-wrap mt-2'>
         {Interviewtype.map((type, index) => (
-  <div key={index} className="flex gap-2 items-center 
-  hover:bg-secondary cursor-pointer border-gray-900 p-1 px-2 bg-blue-50 rounded-2xl" 
-  onClick={()=>setInterviewtype(prev=>[...prev.type.name])}>
+  <div key={index} className={`flex gap-2 items-center 
+  hover:bg-secondary cursor-pointer border-gray-900 p-1 px-2 bg-blue-50 rounded-2xl ${interviewType.includes(type.title)&&'bg-blue-100 text-primary'} `} 
+  onClick={()=>setInterviewtype(prev=>[...prev.type.title])}>
     <type.icon className="h-4 w-4" />
     <span>{type.title}</span>
   </div>
