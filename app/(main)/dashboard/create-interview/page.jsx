@@ -35,7 +35,8 @@ setFormData((prev) => ({
       <h2 className='font-bold text-2xl'>Create New Interview</h2>
      </div>
      <Progress value={step * 33.33} className='my-5'/>
-     {step==1?<FormContainer onHandleInputChange={onHandleInputChange} />
+     {step==1?<FormContainer onHandleInputChange={onHandleInputChange} 
+     GoToNext={()=>setstep(step+1)} />
      :step==2?<QuestionList/>:null}
     </div>
   )
