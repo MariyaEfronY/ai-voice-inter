@@ -47,7 +47,7 @@ setFormData((prev) => ({
      <Progress value={step * 33.33} className='my-5'/>
      {step==1?<FormContainer onHandleInputChange={onHandleInputChange} 
      GoToNext={()=> onGoToNext()} />
-     :step==2?<QuestionList/>:null}
+     :step==2?<QuestionList formData={formData}/>:null}
     </div>
   )
 }

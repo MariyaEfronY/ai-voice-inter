@@ -1,6 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
-function QuestionList() {
+function QuestionList({formData }) {
+    useEffect(()=>{
+       if(formData){
+        GenerateQuetionList();
+       }
+    },[formData]);
+    const GenerateQuetionList=()=>{
+
+    }
   return (
     <div>
       Questions List
