@@ -10,7 +10,7 @@ import FormContainer from './_components/FormContainer.jsx'
 import React from 'react'
 import { validateHeaderName } from 'http'
 import QuestionList from './_components/QuestionList.jsx'
-import { toast } from 'sonner'
+import { toast } from 'react-hot-toast'
 
 const CreateInterview = () => {
   const router = useRouter();
