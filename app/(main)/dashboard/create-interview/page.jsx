@@ -15,10 +15,11 @@ const CreateInterview = () => {
   const [step, setstep] = useState(1);
   const [formData, setFormData] = useState();
   const onHandleInputChange = (field, value)=>{
-    setFormData({
-      ...prev,
-      [field]: value
-    })
+setFormData((prev) => ({
+  ...prev,
+  [field]: value
+}));
+
     console.log("formData",formData); 
 
   }
