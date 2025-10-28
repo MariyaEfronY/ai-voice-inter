@@ -1,3 +1,6 @@
+"use client"
+
+import React, { useState, useEffect } from 'react';
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Interviewtype } from '@/services/Constants';
@@ -10,11 +13,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import React from 'react'
 import { ArrowRight } from 'lucide-react';
 
 function FormContainer({onHandleInputChange}) {
-  const [interviewtype, setInterviewtype] = useState([]);
+  const [interviewType, setInterviewType] = useState([]);
   useEffect(()=>{
     if(interviewType){
       onHandleInputChange('type',interviewType);
