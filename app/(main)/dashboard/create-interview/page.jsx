@@ -10,6 +10,7 @@ import FormContainer from './_components/FormContainer.jsx'
 import React from 'react'
 import { validateHeaderName } from 'http'
 import QuestionList from './_components/QuestionList.jsx'
+import { toast } from 'sonner'
 
 const CreateInterview = () => {
   const router = useRouter();
@@ -26,8 +27,9 @@ setFormData((prev) => ({
   }
 
   const onGoToNext=()=>{  
-    if(formData?.Length<=3)
+    if(!formData?.jobPosition||!formData?.jobDescription||!formData?.Duration||!formData?.type  )
     {
+      toast("Please Enter all Details..!");
       return ;
     }
     setstep(step+1);
