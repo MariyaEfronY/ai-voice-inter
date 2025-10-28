@@ -19,6 +19,7 @@ const CreateInterview = () => {
       ...prev,
       [field]: value
     })
+    console.log("formData",formData); 
 
   }
 

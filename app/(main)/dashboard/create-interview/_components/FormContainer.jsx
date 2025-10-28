@@ -15,6 +15,12 @@ import { ArrowRight } from 'lucide-react';
 
 function FormContainer({onHandleInputChange}) {
   const [interviewtype, setInterviewtype] = useState([]);
+  useEffect(()=>{
+    if(interviewType){
+      onHandleInputChange('type',interviewType);
+    }
+
+  },[interviewType])
   return (
     <div className='p-5 bg-white rounded-2xl'>
       <div>
@@ -48,7 +54,8 @@ function FormContainer({onHandleInputChange}) {
       <div className='flex gap-3 flex-wrap mt-2'>
         {Interviewtype.map((type, index) => (
   <div key={index} className="flex gap-2 items-center 
-  hover:bg-secondary cursor-pointer border-gray-900 p-1 px-2 bg-blue-50 rounded-2xl">
+  hover:bg-secondary cursor-pointer border-gray-900 p-1 px-2 bg-blue-50 rounded-2xl" 
+  onClick={()=>setInterviewtype(prev=>[...prev.type.name])}>
     <type.icon className="h-4 w-4" />
     <span>{type.title}</span>
   </div>
