@@ -21,8 +21,6 @@ function QuestionList({formData }) {
       })
 
       const content=result.data.content;
-      const FINAL_CONTENT=content.replace('"```json','').replace('```','');
-      setQuestionList(JSON.parse(FINAL_CONTENT));
       console.log("AI raw content:", result.data.content);
       setLoading(false);  
     }catch(e){
